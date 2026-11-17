@@ -15,3 +15,11 @@
 3. 展開先の `SakuramachiPointViewer.exe` を起動します。`app` フォルダと付属ファイルは、ZIPを展開したときの配置で使います。
 
 起動時にWebView2 Runtimeの導入を案内された場合は、Microsoftの配布ページからEvergreen Runtimeを入手してください。 [Microsoft Edge WebView2](https://developer.microsoft.com/microsoft-edge/webview2/)
+
+## LCC／LCC2の利用条件
+
+Data Organization Format originated from XGRIDS
+
+本アプリは、XGRIDSのホワイトペーパーに基づく許諾の条件に従い、LCC／LCC2のデータ構成形式を使用・配布します。この形式の知的財産権その他の権利は、XGRIDSまたはその関連会社に帰属します。
+
+この形式をXGRIDSの製品やサービスと直接または間接に競合するAIモデルの学習・追加学習に使用する場合は、XGRIDSの書面による事前承諾が必要です。この形式を第三者に配布する際は、この条件を書面で伝え、適用される利用・配布契約にも含めてください。適用される条件の全文はXGRIDSのホワイトペーパーを参照してください。 [LCC](https://github.com/xgrids/LCCWhitepaper)・[LCC2](https://github.com/xgrids/LCC2Whitepaper)
