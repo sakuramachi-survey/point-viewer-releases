@@ -1,0 +1,28 @@
+name: Prepare Tokyo point cloud samples
+on:
+  push:
+    branches: [samples/tokyo-v1]
+    paths: ['tools/prepare_tokyo.py', '.github/workflows/tokyo-samples.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  crop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install data preparation tools
+        run: pip install 'laspy[lazrs]==2.6.1' mapbox-vector-tile==2.2.0 mercantile==1.2.1 pyproj==3.7.2 scipy==1.16.2 requests==2.32.5
+      - name: Crop and verify the two survey areas
+        run: python -u tools/prepare_tokyo.py
+      - name: Store verified open data
+        run: |
+          git config user.name 'sample-data builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add samples/v1/
+          git diff --cached --quiet || git commit -m 'Publish verified Tokyo point cloud crops and measured metadata'
+          git push origin HEAD:refs/heads/samples/tokyo-v1
